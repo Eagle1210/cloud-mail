@@ -3,6 +3,15 @@ main = "src/index.js"
 compatibility_date = "2025-06-04"
 keep_vars = true
 
+###################################
+# 自定义域名配置
+###################################
+account_id = "a9fa4d21694a35e8e9f2cb9a37d62b2f"  # 必需：替换成你的实际账户ID
+zone_id = "1866fba1c9f354d8d5a482e5b6dfdb73"       # 必需：从Cloudflare域名概览页面获取
+workers_dev = false               # 重要：如果仅使用自定义域名，建议禁用
+# 自定义域名路由配置
+route = ["coolertools.top/*"]  # 请替换成你的实际域名，例如 "api.example.com/*"
+
 [observability]
 enabled = true
 
@@ -27,17 +36,6 @@ run_worker_first = true
 
 [triggers]
 crons = ["0 16 * * *"]	#定时任务每天晚上12点执行
-
-###################################
-# 自定义域名配置
-###################################
-account_id = "a9fa4d21694a35e8e9f2cb9a37d62b2f"  # 必需：替换成你的实际账户ID
-zone_id = "1866fba1c9f354d8d5a482e5b6dfdb73"       # 必需：从Cloudflare域名概览页面获取
-workers_dev = false               # 重要：如果仅使用自定义域名，建议禁用
-
-# 自定义域名路由配置
-[[routes]]
-pattern = "coolertools.top/*"  # 请替换成你的实际域名，例如 "api.example.com/*"
 
 #[vars]
 #orm_log = false
